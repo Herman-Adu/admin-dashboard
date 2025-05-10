@@ -33,8 +33,11 @@ export function DataTable<TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
-  // add sorting state
+  // sorting state
   const [sorting, setSorting] = useState<SortingState>([]);
+
+  // row selection state
+  const [rowSelection, setRowSelection] = useState({});
 
   const table = useReactTable({
     data,
@@ -43,13 +46,15 @@ export function DataTable<TData, TValue>({
     getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
     onSortingChange: setSorting,
+    onRowSelectionChange: setRowSelection,
     state: {
       sorting,
+      rowSelection,
     },
   });
 
   //Table methods:
-  console.log("Table Features: ", table);
+  //console.log("Table Features: ", table);
 
   return (
     <div className="rounded-md border">
