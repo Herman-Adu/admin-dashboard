@@ -1,6 +1,6 @@
 "use client";
 
-import { LogOut, Moon, Settings, SquareMenu, Sun, User } from "lucide-react";
+import { LogOut, Moon, Settings, Sun, User } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
@@ -15,10 +15,11 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "./ui/button";
 import { useTheme } from "next-themes";
-import { SidebarTrigger, useSidebar } from "./ui/sidebar";
+import { SidebarTrigger } from "./ui/sidebar";
 
 const Navbar = () => {
-  const { theme, setTheme } = useTheme();
+  //const { theme, setTheme } = useTheme();
+  const { setTheme } = useTheme();
 
   /* using custom buttons    
     const { toggleSidebar } = useSidebar(); 
