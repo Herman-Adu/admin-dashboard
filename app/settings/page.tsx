@@ -303,7 +303,7 @@ function EyeOffIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   );
 }
 
-function FrameIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
+/* function FrameIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -323,7 +323,7 @@ function FrameIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
       <line x1="18" x2="18" y1="2" y2="22" />
     </svg>
   );
-}
+} */
 
 function MonitorIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
