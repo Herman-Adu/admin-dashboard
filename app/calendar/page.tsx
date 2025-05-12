@@ -1,7 +1,6 @@
 import Calendar from "@/components/Calendar";
-import React from "react";
 
-const InboxPage = () => {
+const CalendarPage = () => {
   return (
     <div className="">
       <Calendar />
@@ -9,4 +8,4 @@ const InboxPage = () => {
   );
 };
 
-export default InboxPage;
+export default CalendarPage;

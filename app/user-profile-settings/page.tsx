@@ -17,15 +17,15 @@ import {
   SelectItem,
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
-import { JSX, SVGProps } from "react";
+//import { JSX, SVGProps } from "react";
 
-export default function Component() {
+export default function UserProfileSettings() {
   return (
     <div className="flex min-h-screen">
       <div className="flex-1 bg-gray-100 dark:bg-gray-800 py-8">
         <div className="container mx-auto px-4 md:px-6">
           <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-50 mb-6">
-            Settings
+            User Profile Settings
           </h1>
           <div className="grid gap-6">
             <Accordion type="single" collapsible>
@@ -39,7 +39,7 @@ export default function Component() {
                       Manage your account settings
                     </p>
                   </div>
-                  <ChevronDownIcon className="w-5 h-5 text-gray-500 dark:text-gray-400" />
+                  {/* <ChevronDownIcon className="w-5 h-5 text-gray-500 dark:text-gray-400" /> */}
                 </AccordionTrigger>
                 <AccordionContent>
                   <div className="space-y-6 pt-4">
@@ -79,7 +79,7 @@ export default function Component() {
                       Manage your notification settings
                     </p>
                   </div>
-                  <ChevronDownIcon className="w-5 h-5 text-gray-500 dark:text-gray-400" />
+                  {/* <ChevronDownIcon className="w-5 h-5 text-gray-500 dark:text-gray-400" /> */}
                 </AccordionTrigger>
                 <AccordionContent>
                   <div className="space-y-6 pt-4">
@@ -116,7 +116,7 @@ export default function Component() {
                       Manage your privacy settings
                     </p>
                   </div>
-                  <ChevronDownIcon className="w-5 h-5 text-gray-500 dark:text-gray-400" />
+                  {/*  <ChevronDownIcon className="w-5 h-5 text-gray-500 dark:text-gray-400" /> */}
                 </AccordionTrigger>
                 <AccordionContent>
                   <div className="space-y-6 pt-4">
@@ -149,7 +149,7 @@ export default function Component() {
                       Manage your appearance settings
                     </p>
                   </div>
-                  <ChevronDownIcon className="w-5 h-5 text-gray-500 dark:text-gray-400" />
+                  {/* <ChevronDownIcon className="w-5 h-5 text-gray-500 dark:text-gray-400" /> */}
                 </AccordionTrigger>
                 <AccordionContent>
                   <div className="space-y-6 pt-4">
@@ -184,7 +184,7 @@ export default function Component() {
   );
 }
 
-function ChevronDownIcon(
+/* function ChevronDownIcon(
   props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
 ) {
   return (
@@ -203,7 +203,7 @@ function ChevronDownIcon(
       <path d="m6 9 6 6 6-6" />
     </svg>
   );
-}
+} */
 
 /* function MountainIcon(
   props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>

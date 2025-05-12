@@ -52,9 +52,14 @@ import {
 
 const items = [
   {
-    title: "Home",
+    title: "Dashboard",
     url: "/",
     icon: Home,
+  },
+  {
+    title: "User Profile",
+    url: "/users/herman-adu",
+    icon: Search,
   },
   {
     title: "Inbox",
@@ -67,13 +72,13 @@ const items = [
     icon: Calendar,
   },
   {
-    title: "Account",
-    url: "/account",
+    title: "User Settings",
+    url: "/user-profile-settings",
     icon: Search,
   },
   {
-    title: "Settings",
-    url: "/settings",
+    title: "Admin Settings",
+    url: "/admin-settings",
     icon: Settings,
   },
 ];
@@ -124,7 +129,7 @@ const AppSidebar = () => {
                     </a>
                   </SidebarMenuButton>
                   {item.title === "Inbox" && (
-                    <SidebarMenuBadge>24</SidebarMenuBadge>
+                    <SidebarMenuBadge>128</SidebarMenuBadge>
                   )}
                 </SidebarMenuItem>
               ))}
