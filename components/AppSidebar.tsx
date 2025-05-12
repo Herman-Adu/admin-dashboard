@@ -68,12 +68,12 @@ const items = [
   },
   {
     title: "Search",
-    url: "#",
+    url: "/search",
     icon: Search,
   },
   {
     title: "Settings",
-    url: "#",
+    url: "/settings",
     icon: Settings,
   },
 ];
@@ -250,7 +250,7 @@ const AppSidebar = () => {
 
                   <SidebarMenuItem>
                     <SidebarMenuButton asChild>
-                      <Link href="/#">
+                      <Link href="/">
                         <User />
                         <span>Add User</span>
                       </Link>
@@ -286,7 +286,7 @@ const AppSidebar = () => {
 
                   <SidebarMenuItem>
                     <SidebarMenuButton asChild>
-                      <Link href="/#">
+                      <Link href="/">
                         <User />
                         <span>Add Payment</span>
                       </Link>
@@ -418,7 +418,7 @@ const AppSidebar = () => {
                     <SidebarMenuSub>
                       <SidebarMenuSubItem>
                         <SidebarMenuSubButton asChild>
-                          <Link href="/#">
+                          <Link href="/">
                             <FolderGit2 />
                             <span>All Projects</span>
                           </Link>
@@ -427,7 +427,7 @@ const AppSidebar = () => {
 
                       <SidebarMenuSubItem>
                         <SidebarMenuSubButton asChild>
-                          <Link href="/#">
+                          <Link href="/">
                             <ArrowUpFromLine />
                             <span>Add Project</span>
                           </Link>
@@ -436,7 +436,7 @@ const AppSidebar = () => {
 
                       <SidebarMenuSubItem>
                         <SidebarMenuSubButton asChild>
-                          <Link href="/#">
+                          <Link href="/">
                             <ArrowUpFromLine />
                             <span>Add Category</span>
                           </Link>
@@ -467,7 +467,7 @@ const AppSidebar = () => {
                     <SidebarMenuSub>
                       <SidebarMenuSubItem>
                         <SidebarMenuSubButton asChild>
-                          <Link href="/#">
+                          <Link href="/">
                             <Newspaper />
                             <span>All Articles</span>
                           </Link>
@@ -476,7 +476,7 @@ const AppSidebar = () => {
 
                       <SidebarMenuSubItem>
                         <SidebarMenuSubButton asChild>
-                          <Link href="/#">
+                          <Link href="/">
                             <ArrowUpFromLine />
                             <span>Add Article</span>
                           </Link>
@@ -485,7 +485,7 @@ const AppSidebar = () => {
 
                       <SidebarMenuSubItem>
                         <SidebarMenuSubButton asChild>
-                          <Link href="/#">
+                          <Link href="/">
                             <ArrowUpFromLine />
                             <span>Add Category</span>
                           </Link>
