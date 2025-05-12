@@ -71,9 +71,14 @@ const items = [
     url: "/calendar",
     icon: Calendar,
   },
+  /* {
+    title: "User Profile Settings",
+    url: "/user-profile-settings",
+    icon: Search,
+  }, */
   {
     title: "User Settings",
-    url: "/user-profile-settings",
+    url: "/user-settings",
     icon: Search,
   },
   {
