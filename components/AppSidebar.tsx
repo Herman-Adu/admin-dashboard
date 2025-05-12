@@ -77,6 +77,11 @@ const items = [
     icon: Search,
   }, */
   {
+    title: "Tasks",
+    url: "/tasks",
+    icon: Settings,
+  },
+  {
     title: "User Settings",
     url: "/user-settings",
     icon: Search,

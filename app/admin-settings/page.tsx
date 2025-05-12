@@ -17,6 +17,7 @@ import {
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
 } from "@/components/ui/dropdown-menu";
+import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
 import { JSX, SVGProps } from "react";
 
@@ -25,9 +26,13 @@ export default function AdminSettings() {
     <>
       <div className="w-full px-10 justify-start items-start gap-8">
         {/* Events Section */}
-        <div className="w-3/12">
-          <h1 className="font-semibold text-3xl">Settings</h1>
+        <div className="space-y-0.5">
+          <h2 className="text-2xl font-bold tracking-tight">Admin Settings</h2>
+          <p className="text-muted-foreground">
+            Admin management of global application settings.
+          </p>
         </div>
+        <Separator className="my-6" />
 
         <div className="w-9/12 mt-8">
           <div className="grid md:grid-cols-[180px_1fr] lg:grid-cols-[250px_1fr] items-start gap-6 max-w-6xl w-full mx-auto">
