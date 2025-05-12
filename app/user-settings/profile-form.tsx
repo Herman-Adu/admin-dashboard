@@ -92,7 +92,9 @@ export function ProfileForm() {
       ),
     }); */
 
-    toast("You submitted the following values:");
+    toast(
+      `you submitted the following values:  ${JSON.stringify(data, null, 2)}`
+    );
   }
 
   return (
