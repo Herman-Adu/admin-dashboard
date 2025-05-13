@@ -1,6 +1,6 @@
 "use client";
 
-import { LogOut, Moon, Settings, Sun, User } from "lucide-react";
+import { Calendar, Cog, LogIn, LogOut, Moon, Sun } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "./ui/button";
 import { useTheme } from "next-themes";
-import { SidebarTrigger } from "./ui/sidebar";
+import { SidebarMenuButton, SidebarTrigger } from "./ui/sidebar";
 
 const Navbar = () => {
   //const { theme, setTheme } = useTheme();
@@ -74,16 +74,36 @@ const Navbar = () => {
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <User className="h-[1.2rem] w-[1.2rem] mr-2" />
-              <Link href="/users/herman-adu">Profile</Link>
+              <SidebarMenuButton asChild>
+                <Link href="/user-settings">
+                  <Cog />
+                  <span>Settings</span>
+                </Link>
+              </SidebarMenuButton>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <Settings className="h-[1.2rem] w-[1.2rem] mr-2" />
-              Settings
+              <SidebarMenuButton asChild>
+                <Link href="/calendar">
+                  <Calendar />
+                  <span>Inbox</span>
+                </Link>
+              </SidebarMenuButton>
             </DropdownMenuItem>
-            <DropdownMenuItem variant="destructive">
-              <LogOut className="h-[1.2rem] w-[1.2rem] mr-2" />
-              Logout
+            <DropdownMenuItem>
+              <SidebarMenuButton asChild>
+                <Link href="/">
+                  <LogOut />
+                  <span>Logout</span>
+                </Link>
+              </SidebarMenuButton>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <SidebarMenuButton asChild>
+                <Link href="/authentication">
+                  <LogIn />
+                  <span>Log in</span>
+                </Link>
+              </SidebarMenuButton>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

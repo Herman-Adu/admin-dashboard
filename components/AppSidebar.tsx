@@ -1,4 +1,4 @@
-//"use client";
+"use client";
 
 import {
   Home,
@@ -17,11 +17,15 @@ import {
   //FolderRoot,
   ArrowUpFromLine,
   //ArrowRightFromLine,
-  Newspaper,
+  //Newspaper,
   //BadgePoundSterling,
-  ArrowRightLeft,
-  WalletCards,
-  Text,
+  //ArrowRightLeft,
+  //WalletCards,
+  //Text,
+  Cog,
+  ShieldCheck,
+  LogIn,
+  LogOut,
 } from "lucide-react";
 
 import {
@@ -37,11 +41,11 @@ import {
   SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarMenuSub,
-  SidebarMenuSubButton,
-  SidebarMenuSubItem,
+  //SidebarMenuSub,
+  //SidebarMenuSubButton,
+  //SidebarMenuSubItem,
   SidebarSeparator,
-  //useSidebar,
+  useSidebar,
 } from "./ui/sidebar";
 import Link from "next/link";
 import Image from "next/image";
@@ -57,7 +61,7 @@ import {
   CollapsibleTrigger,
 } from "./ui/collapsible";
 
-import NavLink from "./NavLink";
+//import NavLink from "./NavLink";
 
 const items = [
   {
@@ -103,7 +107,7 @@ const items = [
 ];
 
 const AppSidebar = () => {
-  //const { setOpenMobile } = useSidebar();
+  const { setOpenMobile } = useSidebar();
 
   return (
     <Sidebar collapsible="icon">
@@ -144,21 +148,10 @@ const AppSidebar = () => {
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    {/* <a href={item.url}>
+                    <Link href={item.url} onClick={() => setOpenMobile(false)}>
                       <item.icon />
                       <span>{item.title}</span>
-                    </a> */}
-
-                    {/* <Link href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </Link> */}
-
-                    <NavLink
-                      href={item.url}
-                      icon={<item.icon size={16} />}
-                      title={item.title}
-                    />
+                    </Link>
                   </SidebarMenuButton>
                   {item.title === "Inbox" && (
                     <SidebarMenuBadge>128</SidebarMenuBadge>
@@ -278,31 +271,19 @@ const AppSidebar = () => {
                 <SidebarMenu>
                   <SidebarMenuItem>
                     <SidebarMenuButton asChild>
-                      {/* <Link href="/users">
+                      <Link href="/users" onClick={() => setOpenMobile(false)}>
                         <Users2 />
                         <span>See All Users</span>
-                      </Link> */}
-
-                      <NavLink
-                        href="/users"
-                        icon={<Users2 size={16} />}
-                        title="See All Users"
-                      />
+                      </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
 
                   <SidebarMenuItem>
                     <SidebarMenuButton asChild>
-                      {/* <Link href="/">
-                        <User />
+                      <Link href="/users" onClick={() => setOpenMobile(false)}>
+                        <User2 />
                         <span>Add User</span>
-                      </Link> */}
-
-                      <NavLink
-                        href="/users"
-                        icon={<Users2 size={16} />}
-                        title="Add Users"
-                      />
+                      </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 </SidebarMenu>
@@ -311,10 +292,10 @@ const AppSidebar = () => {
           </SidebarGroup>
         </Collapsible>
 
-        {/* Nested Collapsible Financial Overview Group */}
+        {/* Financial Overview Group */}
         <Collapsible defaultOpen className="group/collapsible">
           <SidebarGroup>
-            <SidebarGroupLabel asChild>
+            <SidebarGroupLabel asChild className="mb-1">
               <CollapsibleTrigger>
                 Financial Overview
                 <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
@@ -325,28 +306,70 @@ const AppSidebar = () => {
               <SidebarGroupContent>
                 <SidebarMenu>
                   <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <Link
+                        href="/financial-dashboard"
+                        onClick={() => setOpenMobile(false)}
+                      >
+                        <FolderGit2 />
+                        <span>Dashboard</span>
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <Link
+                        href="/financial-dashboard/transactions"
+                        onClick={() => setOpenMobile(false)}
+                      >
+                        <ArrowUpFromLine />
+                        <span>Recent Transactions</span>
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </CollapsibleContent>
+          </SidebarGroup>
+        </Collapsible>
+
+        {/* Nested Collapsible Financial Overview Group */}
+        {/*<Collapsible defaultOpen className="group/collapsible">
+          <SidebarGroup>
+            <SidebarGroupLabel asChild>
+              <CollapsibleTrigger>
+                Financial Overview
+                <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
+              </CollapsibleTrigger>
+            </SidebarGroupLabel>
+
+             <CollapsibleContent>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  <SidebarMenuItem>
                     <SidebarMenuSub>
                       <SidebarMenuSubItem>
                         <SidebarMenuSubButton asChild>
-                          {/* <Link href="/">
+                          <Link href="/financial-dashboard">
                             <FolderGit2 />
-                            <span>All Projects</span>
-                          </Link> */}
-
-                          <NavLink
-                            href="/financial-dashboard"
-                            icon={<WalletCards size={16} />}
-                            title="Dashboard"
-                          />
+                            <span>Dashboard</span>
+                          </Link>
                         </SidebarMenuSubButton>
+
+                        <NavLink
+                          href="/financial-dashboard"
+                          icon={<WalletCards size={16} />}
+                          title="Dashboard"
+                        />
                       </SidebarMenuSubItem>
 
                       <SidebarMenuSubItem>
                         <SidebarMenuSubButton asChild>
-                          {/* <Link href="/">
+                          <Link href="/financial-dashboard/transactions">
                             <ArrowUpFromLine />
-                            <span>Add Project</span>
-                          </Link> */}
+                            <span>Recent Transactions</span>
+                          </Link>
 
                           <NavLink
                             href="/financial-dashboard/transactions"
@@ -359,9 +382,9 @@ const AppSidebar = () => {
                   </SidebarMenuItem>
                 </SidebarMenu>
               </SidebarGroupContent>
-            </CollapsibleContent>
+            </CollapsibleContent> 
           </SidebarGroup>
-        </Collapsible>
+        </Collapsible>*/}
 
         {/* Nested Group */}
         {/* <SidebarGroup>
@@ -467,7 +490,7 @@ const AppSidebar = () => {
       </SidebarContent> */}
 
         {/* Nested Collapsible Projects Group */}
-        <Collapsible defaultOpen className="group/collapsible">
+        {/* <Collapsible defaultOpen className="group/collapsible">
           <SidebarGroup>
             <SidebarGroupLabel asChild>
               <CollapsibleTrigger>
@@ -483,25 +506,25 @@ const AppSidebar = () => {
                     <SidebarMenuSub>
                       <SidebarMenuSubItem>
                         <SidebarMenuSubButton asChild>
-                          {/* <Link href="/">
+                          <Link href="/">
                             <FolderGit2 />
                             <span>All Projects</span>
-                          </Link> */}
+                          </Link>
 
-                          <NavLink
+                          {/* <NavLink
                             href="/"
                             icon={<FolderGit2 size={16} />}
                             title="All Projects"
-                          />
+                          /> 
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
 
                       <SidebarMenuSubItem>
                         <SidebarMenuSubButton asChild>
-                          {/* <Link href="/">
+                          <Link href="/">
                             <ArrowUpFromLine />
                             <span>Add Project</span>
-                          </Link> */}
+                          </Link>
 
                           <NavLink
                             href="/"
@@ -513,10 +536,10 @@ const AppSidebar = () => {
 
                       <SidebarMenuSubItem>
                         <SidebarMenuSubButton asChild>
-                          {/* <Link href="/">
+                          <Link href="/">
                             <ArrowUpFromLine />
                             <span>Add Category</span>
-                          </Link> */}
+                          </Link>
 
                           <NavLink
                             href="/"
@@ -531,10 +554,10 @@ const AppSidebar = () => {
               </SidebarGroupContent>
             </CollapsibleContent>
           </SidebarGroup>
-        </Collapsible>
+        </Collapsible> */}
 
         {/* Nested Collapsible Projects Group */}
-        <Collapsible defaultOpen className="group/collapsible">
+        {/*<Collapsible defaultOpen className="group/collapsible">
           <SidebarGroup>
             <SidebarGroupLabel asChild>
               <CollapsibleTrigger>
@@ -543,17 +566,17 @@ const AppSidebar = () => {
               </CollapsibleTrigger>
             </SidebarGroupLabel>
 
-            <CollapsibleContent>
+             <CollapsibleContent>
               <SidebarGroupContent>
                 <SidebarMenu>
                   <SidebarMenuItem>
                     <SidebarMenuSub>
                       <SidebarMenuSubItem>
                         <SidebarMenuSubButton asChild>
-                          {/* <Link href="/">
+                          <Link href="/">
                             <Newspaper />
                             <span>All Articles</span>
-                          </Link> */}
+                          </Link>
 
                           <NavLink
                             href="/"
@@ -565,10 +588,10 @@ const AppSidebar = () => {
 
                       <SidebarMenuSubItem>
                         <SidebarMenuSubButton asChild>
-                          {/* <Link href="/">
+                          <Link href="/">
                             <ArrowUpFromLine />
                             <span>Add Article</span>
-                          </Link> */}
+                          </Link>
 
                           <NavLink
                             href="/"
@@ -580,25 +603,25 @@ const AppSidebar = () => {
 
                       <SidebarMenuSubItem>
                         <SidebarMenuSubButton asChild>
-                          {/* <Link href="/">
+                          <Link href="/">
                             <ArrowUpFromLine />
                             <span>Add Category</span>
-                          </Link> */}
+                          </Link>
 
                           <NavLink
                             href="/"
                             icon={<Text size={16} />}
                             title="Add Category"
-                          />
+                          /> 
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
                     </SidebarMenuSub>
                   </SidebarMenuItem>
                 </SidebarMenu>
               </SidebarGroupContent>
-            </CollapsibleContent>
+            </CollapsibleContent> 
           </SidebarGroup>
-        </Collapsible>
+        </Collapsible>*/}
       </SidebarContent>
 
       <SidebarFooter>
@@ -611,9 +634,47 @@ const AppSidebar = () => {
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuItem>Account</DropdownMenuItem>
-                <DropdownMenuItem>Setting</DropdownMenuItem>
-                <DropdownMenuItem>Sign out</DropdownMenuItem>
+                <DropdownMenuItem>
+                  <SidebarMenuButton asChild>
+                    <Link
+                      href="/users/herman-adu"
+                      onClick={() => setOpenMobile(false)}
+                    >
+                      <ShieldCheck />
+                      <span>Account</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <SidebarMenuButton asChild>
+                    <Link
+                      href="/user-settings"
+                      onClick={() => setOpenMobile(false)}
+                    >
+                      <Cog />
+                      <span>Settings</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <SidebarMenuButton asChild>
+                    <Link href="/" onClick={() => setOpenMobile(false)}>
+                      <LogOut />
+                      <span>Sign out</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <SidebarMenuButton asChild>
+                    <Link
+                      href="/authentication"
+                      onClick={() => setOpenMobile(false)}
+                    >
+                      <LogIn />
+                      <span>Sign in</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </SidebarMenuItem>
