@@ -57,7 +57,7 @@ export function DataTable<TData, TValue>({
   //console.log("Table Features: ", table);
 
   return (
-    <div className="rounded-md border">
+    <div className="rounded-md border w-full">
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (

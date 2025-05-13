@@ -1,3 +1,5 @@
+//"use client";
+
 import {
   Home,
   Inbox,
@@ -10,12 +12,16 @@ import {
   //Projector,
   ChevronDown,
   Users2,
-  User,
+  //User,
   FolderGit2,
   //FolderRoot,
   ArrowUpFromLine,
   //ArrowRightFromLine,
   Newspaper,
+  //BadgePoundSterling,
+  ArrowRightLeft,
+  WalletCards,
+  Text,
 } from "lucide-react";
 
 import {
@@ -35,6 +41,7 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
   SidebarSeparator,
+  //useSidebar,
 } from "./ui/sidebar";
 import Link from "next/link";
 import Image from "next/image";
@@ -50,9 +57,11 @@ import {
   CollapsibleTrigger,
 } from "./ui/collapsible";
 
+import NavLink from "./NavLink";
+
 const items = [
   {
-    title: "Dashboard",
+    title: "Home",
     url: "/",
     icon: Home,
   },
@@ -94,6 +103,8 @@ const items = [
 ];
 
 const AppSidebar = () => {
+  //const { setOpenMobile } = useSidebar();
+
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader className="py-4">
@@ -127,16 +138,27 @@ const AppSidebar = () => {
       <SidebarContent>
         {/* Application Group */}
         <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
+          <SidebarGroupLabel className="mb-1">Application</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <a href={item.url}>
+                    {/* <a href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
-                    </a>
+                    </a> */}
+
+                    {/* <Link href={item.url}>
+                      <item.icon />
+                      <span>{item.title}</span>
+                    </Link> */}
+
+                    <NavLink
+                      href={item.url}
+                      icon={<item.icon size={16} />}
+                      title={item.title}
+                    />
                   </SidebarMenuButton>
                   {item.title === "Inbox" && (
                     <SidebarMenuBadge>128</SidebarMenuBadge>
@@ -244,7 +266,7 @@ const AppSidebar = () => {
         {/* Users */}
         <Collapsible defaultOpen className="group/collapsible">
           <SidebarGroup>
-            <SidebarGroupLabel asChild>
+            <SidebarGroupLabel asChild className="mb-1">
               <CollapsibleTrigger>
                 Users
                 <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
@@ -256,19 +278,31 @@ const AppSidebar = () => {
                 <SidebarMenu>
                   <SidebarMenuItem>
                     <SidebarMenuButton asChild>
-                      <Link href="/users">
+                      {/* <Link href="/users">
                         <Users2 />
                         <span>See All Users</span>
-                      </Link>
+                      </Link> */}
+
+                      <NavLink
+                        href="/users"
+                        icon={<Users2 size={16} />}
+                        title="See All Users"
+                      />
                     </SidebarMenuButton>
                   </SidebarMenuItem>
 
                   <SidebarMenuItem>
                     <SidebarMenuButton asChild>
-                      <Link href="/">
+                      {/* <Link href="/">
                         <User />
                         <span>Add User</span>
-                      </Link>
+                      </Link> */}
+
+                      <NavLink
+                        href="/users"
+                        icon={<Users2 size={16} />}
+                        title="Add Users"
+                      />
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 </SidebarMenu>
@@ -277,12 +311,12 @@ const AppSidebar = () => {
           </SidebarGroup>
         </Collapsible>
 
-        {/* Payments */}
+        {/* Nested Collapsible Financial Overview Group */}
         <Collapsible defaultOpen className="group/collapsible">
           <SidebarGroup>
             <SidebarGroupLabel asChild>
               <CollapsibleTrigger>
-                Payments
+                Financial Overview
                 <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
               </CollapsibleTrigger>
             </SidebarGroupLabel>
@@ -291,21 +325,37 @@ const AppSidebar = () => {
               <SidebarGroupContent>
                 <SidebarMenu>
                   <SidebarMenuItem>
-                    <SidebarMenuButton asChild>
-                      <Link href="/payments">
-                        <Users2 />
-                        <span>See All Payments</span>
-                      </Link>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
+                    <SidebarMenuSub>
+                      <SidebarMenuSubItem>
+                        <SidebarMenuSubButton asChild>
+                          {/* <Link href="/">
+                            <FolderGit2 />
+                            <span>All Projects</span>
+                          </Link> */}
 
-                  <SidebarMenuItem>
-                    <SidebarMenuButton asChild>
-                      <Link href="/">
-                        <User />
-                        <span>Add Payment</span>
-                      </Link>
-                    </SidebarMenuButton>
+                          <NavLink
+                            href="/financial-dashboard"
+                            icon={<WalletCards size={16} />}
+                            title="Dashboard"
+                          />
+                        </SidebarMenuSubButton>
+                      </SidebarMenuSubItem>
+
+                      <SidebarMenuSubItem>
+                        <SidebarMenuSubButton asChild>
+                          {/* <Link href="/">
+                            <ArrowUpFromLine />
+                            <span>Add Project</span>
+                          </Link> */}
+
+                          <NavLink
+                            href="/financial-dashboard/transactions"
+                            icon={<ArrowRightLeft size={16} />}
+                            title="Recent Transactions"
+                          />
+                        </SidebarMenuSubButton>
+                      </SidebarMenuSubItem>
+                    </SidebarMenuSub>
                   </SidebarMenuItem>
                 </SidebarMenu>
               </SidebarGroupContent>
@@ -433,28 +483,46 @@ const AppSidebar = () => {
                     <SidebarMenuSub>
                       <SidebarMenuSubItem>
                         <SidebarMenuSubButton asChild>
-                          <Link href="/">
+                          {/* <Link href="/">
                             <FolderGit2 />
                             <span>All Projects</span>
-                          </Link>
+                          </Link> */}
+
+                          <NavLink
+                            href="/"
+                            icon={<FolderGit2 size={16} />}
+                            title="All Projects"
+                          />
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
 
                       <SidebarMenuSubItem>
                         <SidebarMenuSubButton asChild>
-                          <Link href="/">
+                          {/* <Link href="/">
                             <ArrowUpFromLine />
                             <span>Add Project</span>
-                          </Link>
+                          </Link> */}
+
+                          <NavLink
+                            href="/"
+                            icon={<ArrowUpFromLine size={16} />}
+                            title="Add Project"
+                          />
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
 
                       <SidebarMenuSubItem>
                         <SidebarMenuSubButton asChild>
-                          <Link href="/">
+                          {/* <Link href="/">
                             <ArrowUpFromLine />
                             <span>Add Category</span>
-                          </Link>
+                          </Link> */}
+
+                          <NavLink
+                            href="/"
+                            icon={<Text size={16} />}
+                            title="Add Category"
+                          />
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
                     </SidebarMenuSub>
@@ -482,28 +550,46 @@ const AppSidebar = () => {
                     <SidebarMenuSub>
                       <SidebarMenuSubItem>
                         <SidebarMenuSubButton asChild>
-                          <Link href="/">
+                          {/* <Link href="/">
                             <Newspaper />
                             <span>All Articles</span>
-                          </Link>
+                          </Link> */}
+
+                          <NavLink
+                            href="/"
+                            icon={<Newspaper size={16} />}
+                            title="All Articles"
+                          />
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
 
                       <SidebarMenuSubItem>
                         <SidebarMenuSubButton asChild>
-                          <Link href="/">
+                          {/* <Link href="/">
                             <ArrowUpFromLine />
                             <span>Add Article</span>
-                          </Link>
+                          </Link> */}
+
+                          <NavLink
+                            href="/"
+                            icon={<ArrowUpFromLine size={16} />}
+                            title="Add Post"
+                          />
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
 
                       <SidebarMenuSubItem>
                         <SidebarMenuSubButton asChild>
-                          <Link href="/">
+                          {/* <Link href="/">
                             <ArrowUpFromLine />
                             <span>Add Category</span>
-                          </Link>
+                          </Link> */}
+
+                          <NavLink
+                            href="/"
+                            icon={<Text size={16} />}
+                            title="Add Category"
+                          />
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
                     </SidebarMenuSub>
