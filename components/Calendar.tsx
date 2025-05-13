@@ -84,16 +84,14 @@ const Calendar = () => {
 
   return (
     <>
-      <div className="flex w-full px-10 justify-start items-start gap-8">
+      <div className="flex flex-col space-y-8 xl:flex-row xl:space-x-12 xl:space-y-0 w-full">
         {/* Events Section */}
-        <div className="w-3/12">
-          <div className="py-10 text-2xl font-extrabold px-7">
-            Events Calendar
-          </div>
+        <div className="w-full xl:w-3/12">
+          <h2 className="text-2xl font-bold tracking-tight mb-8">Events</h2>
 
           <ul className="space-y-4">
             {currentEvents.length <= 0 && (
-              <div className="italic text-center ">No Events Present</div>
+              <div className="italic">No Events Present</div>
             )}
 
             {currentEvents.length > 0 &&
@@ -118,7 +116,7 @@ const Calendar = () => {
         </div>
 
         {/* FullCalendar Section */}
-        <div className="w-9/12 mt-8">
+        <div className="w-full mt-0">
           <FullCalendar
             height={"85vh"}
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]} // Initialize calendar with required plugins.
@@ -140,6 +138,7 @@ const Calendar = () => {
                 ? JSON.parse(localStorage.getItem("events") || "[]")
                 : []
             } // Initial events loaded from local storage.
+            longPressDelay={0}
           />
         </div>
       </div>

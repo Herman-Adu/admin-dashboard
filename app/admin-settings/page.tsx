@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -17,249 +16,195 @@ import {
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
 } from "@/components/ui/dropdown-menu";
-import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
 import { JSX, SVGProps } from "react";
 
 export default function AdminSettings() {
   return (
-    <>
-      <div className="w-full px-10 justify-start items-start gap-8">
-        {/* Events Section */}
-        <div className="space-y-0.5">
-          <h2 className="text-2xl font-bold tracking-tight">Admin Settings</h2>
-          <p className="text-muted-foreground">
-            Admin management of global application settings.
-          </p>
-        </div>
-        <Separator className="my-6" />
-
-        <div className="w-9/12 mt-8">
-          <div className="grid md:grid-cols-[180px_1fr] lg:grid-cols-[250px_1fr] items-start gap-6 max-w-6xl w-full mx-auto">
-            <nav className="text-sm text-gray-500 grid gap-4 dark:text-gray-400">
-              <Link
-                href="#"
-                className="font-semibold text-gray-900 dark:text-gray-50"
-                prefetch={false}
-              >
-                General
-              </Link>
-              <Link href="#" prefetch={false}>
-                Domains
-              </Link>
-              <Link href="#" prefetch={false}>
-                Log Drains
-              </Link>
-              <Link href="#" prefetch={false}>
-                Webhooks
-              </Link>
-              <Link href="#" prefetch={false}>
-                Integrations
-              </Link>
-              <Link href="#" prefetch={false}>
-                Security
-              </Link>
-              <Link href="#" prefetch={false}>
-                Advanced
-              </Link>
-            </nav>
-            <div className="grid gap-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Project Name</CardTitle>
-                  <CardDescription>
-                    Used to identify your project in the dashboard.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <form>
-                    <Input placeholder="Project Name" />
-                  </form>
-                </CardContent>
-                <CardFooter className="border-t p-6">
-                  <Button>Save</Button>
-                </CardFooter>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Root Directory</CardTitle>
-                  <CardDescription>
-                    The directory within your project, in which your code is
-                    located.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <form className="flex flex-col gap-4">
-                    <Input placeholder="Project Name" defaultValue="/web" />
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="include" defaultChecked />
-                      <label
-                        htmlFor="include"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                      >
-                        Include files from outside of the Root Directory
-                      </label>
-                    </div>
-                  </form>
-                </CardContent>
-                <CardFooter className="border-t p-6">
-                  <Button>Save</Button>
-                </CardFooter>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Notifications</CardTitle>
-                  <CardDescription>
-                    Choose what you want to be notified about.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="grid gap-1">
-                  <div className="-mx-2 flex items-start space-x-4 rounded-md p-2 transition-all hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-50">
-                    <BellIcon className="mt-px h-5 w-5" />
-                    <div className="space-y-1">
-                      <p className="text-sm font-medium leading-none">
-                        Everything
-                      </p>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">
-                        Email digest, mentions & all activity.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="-mx-2 flex items-start space-x-4 rounded-md bg-gray-100 p-2 text-gray-900 transition-all dark:bg-gray-800 dark:text-gray-50">
-                    <AtSignIcon className="mt-px h-5 w-5" />
-                    <div className="space-y-1">
-                      <p className="text-sm font-medium leading-none">
-                        Available
-                      </p>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">
-                        Only mentions and comments.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="-mx-2 flex items-start space-x-4 rounded-md p-2 transition-all hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-50">
-                    <EyeOffIcon className="mt-px h-5 w-5" />
-                    <div className="space-y-1">
-                      <p className="text-sm font-medium leading-none">
-                        Ignoring
-                      </p>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">
-                        Turn off all notifications.
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Appearance</CardTitle>
-                  <CardDescription>
-                    Choose your preferred theme and font size.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="grid gap-4">
-                  <div className="flex items-center justify-between">
-                    <div className="space-y-1">
-                      <p className="text-sm font-medium leading-none">Theme</p>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">
-                        Choose between light and dark mode.
-                      </p>
-                    </div>
-                    <DropdownMenu>
-                      <DropdownMenuTrigger asChild>
-                        <Button variant="outline" size="sm">
-                          <SunIcon className="h-4 w-4 mr-2" />
-                          Light
-                        </Button>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent align="end">
-                        <DropdownMenuRadioGroup value="light">
-                          <DropdownMenuRadioItem value="light">
-                            <SunIcon className="h-4 w-4 mr-2" />
-                            Light
-                          </DropdownMenuRadioItem>
-                          <DropdownMenuRadioItem value="dark">
-                            <MoonIcon className="h-4 w-4 mr-2" />
-                            Dark
-                          </DropdownMenuRadioItem>
-                          <DropdownMenuRadioItem value="system">
-                            <MonitorIcon className="h-4 w-4 mr-2" />
-                            System
-                          </DropdownMenuRadioItem>
-                        </DropdownMenuRadioGroup>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="space-y-1">
-                      <p className="text-sm font-medium leading-none">
-                        Font Size
-                      </p>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">
-                        Adjust the font size to your preference.
-                      </p>
-                    </div>
-                    <DropdownMenu>
-                      <DropdownMenuTrigger asChild>
-                        <Button variant="outline" size="sm">
-                          <TextIcon className="h-4 w-4 mr-2" />
-                          Medium
-                        </Button>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent align="end">
-                        <DropdownMenuRadioGroup value="medium">
-                          <DropdownMenuRadioItem value="small">
-                            Small
-                          </DropdownMenuRadioItem>
-                          <DropdownMenuRadioItem value="medium">
-                            Medium
-                          </DropdownMenuRadioItem>
-                          <DropdownMenuRadioItem value="large">
-                            Large
-                          </DropdownMenuRadioItem>
-                        </DropdownMenuRadioGroup>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
-                  </div>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Privacy</CardTitle>
-                  <CardDescription>
-                    Manage your privacy settings.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="grid gap-4">
-                  <div className="flex items-center justify-between">
-                    <div className="space-y-1">
-                      <p className="text-sm font-medium leading-none">
-                        Share Usage Data
-                      </p>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">
-                        Help us improve the product by sharing anonymous usage
-                        data.
-                      </p>
-                    </div>
-                    <Switch id="share-usage-data" />
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="space-y-1">
-                      <p className="text-sm font-medium leading-none">
-                        Allow Third-Party Cookies
-                      </p>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">
-                        Enable third-party cookies for personalized content.
-                      </p>
-                    </div>
-                    <Switch id="third-party-cookies" />
-                  </div>
-                </CardContent>
-              </Card>
+    <div className="space-y-6">
+      {/* <ProfileForm /> */}
+      <div className="grid gap-6">
+        <Card>
+          <CardHeader>
+            <CardTitle>Project Name</CardTitle>
+            <CardDescription>
+              Used to identify your project in the dashboard.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form>
+              <Input placeholder="Project Name" />
+            </form>
+          </CardContent>
+          <CardFooter className="border-t p-6">
+            <Button>Save</Button>
+          </CardFooter>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Root Directory</CardTitle>
+            <CardDescription>
+              The directory within your project, in which your code is located.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form className="flex flex-col gap-4">
+              <Input placeholder="Project Name" defaultValue="/web" />
+              <div className="flex items-center space-x-2">
+                <Checkbox id="include" defaultChecked />
+                <label
+                  htmlFor="include"
+                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                >
+                  Include files from outside of the Root Directory
+                </label>
+              </div>
+            </form>
+          </CardContent>
+          <CardFooter className="border-t p-6">
+            <Button>Save</Button>
+          </CardFooter>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Notifications</CardTitle>
+            <CardDescription>
+              Choose what you want to be notified about.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="grid gap-1">
+            <div className="-mx-2 flex items-start space-x-4 rounded-md p-2 transition-all hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-50">
+              <BellIcon className="mt-px h-5 w-5" />
+              <div className="space-y-1">
+                <p className="text-sm font-medium leading-none">Everything</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  Email digest, mentions & all activity.
+                </p>
+              </div>
             </div>
-          </div>
-        </div>
+            <div className="-mx-2 flex items-start space-x-4 rounded-md bg-gray-100 p-2 text-gray-900 transition-all dark:bg-gray-800 dark:text-gray-50">
+              <AtSignIcon className="mt-px h-5 w-5" />
+              <div className="space-y-1">
+                <p className="text-sm font-medium leading-none">Available</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  Only mentions and comments.
+                </p>
+              </div>
+            </div>
+            <div className="-mx-2 flex items-start space-x-4 rounded-md p-2 transition-all hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-50">
+              <EyeOffIcon className="mt-px h-5 w-5" />
+              <div className="space-y-1">
+                <p className="text-sm font-medium leading-none">Ignoring</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  Turn off all notifications.
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Appearance</CardTitle>
+            <CardDescription>
+              Choose your preferred theme and font size.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="grid gap-4">
+            <div className="flex items-center justify-between">
+              <div className="space-y-1">
+                <p className="text-sm font-medium leading-none">Theme</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  Choose between light and dark mode.
+                </p>
+              </div>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" size="sm">
+                    <SunIcon className="h-4 w-4 mr-2" />
+                    Light
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuRadioGroup value="light">
+                    <DropdownMenuRadioItem value="light">
+                      <SunIcon className="h-4 w-4 mr-2" />
+                      Light
+                    </DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem value="dark">
+                      <MoonIcon className="h-4 w-4 mr-2" />
+                      Dark
+                    </DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem value="system">
+                      <MonitorIcon className="h-4 w-4 mr-2" />
+                      System
+                    </DropdownMenuRadioItem>
+                  </DropdownMenuRadioGroup>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+            <div className="flex items-center justify-between">
+              <div className="space-y-1">
+                <p className="text-sm font-medium leading-none">Font Size</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  Adjust the font size to your preference.
+                </p>
+              </div>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" size="sm">
+                    <TextIcon className="h-4 w-4 mr-2" />
+                    Medium
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuRadioGroup value="medium">
+                    <DropdownMenuRadioItem value="small">
+                      Small
+                    </DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem value="medium">
+                      Medium
+                    </DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem value="large">
+                      Large
+                    </DropdownMenuRadioItem>
+                  </DropdownMenuRadioGroup>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Privacy</CardTitle>
+            <CardDescription>Manage your privacy settings.</CardDescription>
+          </CardHeader>
+          <CardContent className="grid gap-4">
+            <div className="flex items-center justify-between">
+              <div className="space-y-1">
+                <p className="text-sm font-medium leading-none">
+                  Share Usage Data
+                </p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  Help us improve the product by sharing anonymous usage data.
+                </p>
+              </div>
+              <Switch id="share-usage-data" />
+            </div>
+            <div className="flex items-center justify-between">
+              <div className="space-y-1">
+                <p className="text-sm font-medium leading-none">
+                  Allow Third-Party Cookies
+                </p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  Enable third-party cookies for personalized content.
+                </p>
+              </div>
+              <Switch id="third-party-cookies" />
+            </div>
+          </CardContent>
+        </Card>
       </div>
-    </>
+    </div>
   );
 }
 

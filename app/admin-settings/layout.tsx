@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+//import Image from "next/image";
 
 import { Separator } from "@/components/ui/separator";
 import { Toaster } from "@/components/ui/sonner";
@@ -11,24 +12,20 @@ export const metadata: Metadata = {
 
 const sidebarNavItems = [
   {
-    title: "Profile",
-    href: "/user-settings",
+    title: "General",
+    href: "/admin-settings",
   },
-  /* {
-    title: "Account",
-    href: "/user-settings/account",
-  }, */
   {
-    title: "Appearance",
-    href: "/user-settings/appearance",
+    title: "Domains",
+    href: "/admin-settings/domains",
+  },
+  {
+    title: "Webhooks",
+    href: "/admin-settings/webhooks",
   },
   {
     title: "Notifications",
-    href: "/user-settings/notifications",
-  },
-  {
-    title: "Display",
-    href: "/user-settings/display",
+    href: "/admin-settings/notifications",
   },
 ];
 
@@ -58,13 +55,13 @@ export default function SettingsLayout({ children }: SettingsLayoutProps) {
       {/* <div className="hidden space-y-6  pb-16 md:block "> */}
       <div className="w-full px-10 justify-start items-start gap-8">
         <div className="space-y-0.5">
-          <h2 className="text-2xl font-bold tracking-tight">User Settings</h2>
+          <h2 className="text-2xl font-bold tracking-tight">Admin Settings</h2>
           <p className="text-muted-foreground">
-            Manage your account settings and set e-mail preferences.
+            Advance account and application settings.
           </p>
         </div>
         <Separator className="my-6" />
-        <div className="flex flex-col space-y-8 lg:flex-row lg:space-x-12 lg:space-y-0">
+        <div className="flex flex-col space-y-8 lg:flex-row lg:space-x-12 lg:space-y-0 w-full">
           <aside className="-mx-4 w-3/12">
             <SidebarNav items={sidebarNavItems} />
           </aside>

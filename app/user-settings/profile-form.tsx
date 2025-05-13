@@ -99,7 +99,7 @@ export function ProfileForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
           control={form.control}
           name="username"
@@ -171,7 +171,7 @@ export function ProfileForm() {
               key={field.id}
               name={`urls.${index}.value`}
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="mt-4">
                   <FormLabel className={cn(index !== 0 && "sr-only")}>
                     URLs
                   </FormLabel>
@@ -190,13 +190,15 @@ export function ProfileForm() {
             type="button"
             variant="outline"
             size="sm"
-            className="mt-2"
+            className="mt-4"
             onClick={() => append({ value: "" })}
           >
             Add URL
           </Button>
         </div>
-        <Button type="submit">Update profile</Button>
+        <Button type="submit" className="mt-4">
+          Update profile
+        </Button>
       </form>
     </Form>
   );
