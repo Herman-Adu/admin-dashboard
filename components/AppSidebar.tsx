@@ -26,6 +26,7 @@ import {
   ShieldCheck,
   LogIn,
   LogOut,
+  Files,
 } from "lucide-react";
 
 import {
@@ -84,11 +85,11 @@ const items = [
     url: "/calendar",
     icon: Calendar,
   },
-  /* {
-    title: "User Profile Settings",
-    url: "/user-profile-settings",
-    icon: Search,
-  }, */
+  {
+    title: "Documents",
+    url: "/documents",
+    icon: Files,
+  },
   {
     title: "Tasks",
     url: "/tasks",

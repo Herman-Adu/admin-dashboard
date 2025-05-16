@@ -6,7 +6,8 @@ import { useSidebar } from "./ui/sidebar";
 
 interface NavLinkProps {
   href: string;
-  icon: ReactNode;
+  //icon?: React.ComponentType<React.SVGProps<SVGSVGElement>> | undefined;
+  icon?: ReactNode;
   title: string;
 }
 
